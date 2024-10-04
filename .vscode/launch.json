@@ -1,0 +1,56 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "cpp-debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/opt/conda/envs/py_3.10/bin/python3",
+      "args": [
+        "-m",
+        "pytest",
+        // "-v",
+        // "python/perf-kernels/tools/tune_gemm/test_regression.py",
+        // "python/test/unit/language/test_core.py",
+        "python/test/unit/language/test_core.py::test_dot3d"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [
+        {
+          "name": "MLIR_ENABLE_DUMP",
+          "value": "0"
+        },
+        {
+          "name": "LLVM_IR_ENABLE_DUMP",
+          "value": "0"
+        },
+        {
+          "name": "AMDGCN_ENABLE_DUMP",
+          "value": "0"
+        },
+        {
+          "name": "TRITON_ENABLE_LLVM_DEBUG",
+          "value": "1"
+        }
+      ],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/opt/rocm/bin/rocgdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+    },
+    {
+      "name": "py-debug",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/.vscode/vector_add.py",
+      "console": "integratedTerminal",
+    }
+  ]
+}

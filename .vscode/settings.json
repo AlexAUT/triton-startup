@@ -1,0 +1,27 @@
+{
+    "[python]": {
+        "editor.formatOnSaveMode": "file",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "eeyore.yapf",
+        "editor.formatOnType": false
+    },
+    "files.watcherExclude": {
+        "**/.ccls-cache/**": true,
+        "**/.cache/**": true,
+        "**/.clangd/**": true,
+        "**/.git/objects/**": true,
+        "**/.git/rr-cache/**": true,
+        "${workspaceFolder}/build/**": true
+    },
+    "cmake.configureOnOpen": false,
+    "clangd.arguments": [
+        "-log=verbose",
+        "-pretty",
+        "--background-index",
+        "--header-insertion=never",
+        "--compile-commands-dir=${workspaceFolder}/python/build/cmake.linux-x86_64-cpython-3.10"
+    ],
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "editor.tabSize": 2,
+    "python.defaultInterpreterPath": "/opt/conda/envs/py_3.10/bin/python3"
+}
