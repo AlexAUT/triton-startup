@@ -9,10 +9,11 @@
       "args": [
         "-m",
         "pytest",
-        // "-v",
+        "-s",
+        "-vv",
         // "python/perf-kernels/tools/tune_gemm/test_regression.py",
-        // "python/test/unit/language/test_core.py",
-        "python/test/unit/language/test_core.py::test_dot3d"
+        "python/test/unit/language/test_core.py",
+        // "python/test/unit/language/test_core.py::test_dot3d[1-1-64-64-64-32-32-float32-float32]"
       ],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
