@@ -1,1 +1,1 @@
-pip install -e python
+pip install -e python --no-build-isolation

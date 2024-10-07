@@ -52,6 +52,20 @@
       "request": "launch",
       "program": "${workspaceFolder}/.vscode/vector_add.py",
       "console": "integratedTerminal",
+    },
+    {
+      "name": "Debug pytest",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": [
+        "-s",
+        "-x",
+        "-vv",
+        // "python/perf-kernels/tools/tune_gemm/test_regression.py",
+        // "python/test/unit/language/test_core.py",
+        "python/test/unit/language/test_core.py::test_bin_op"
+      ]
     }
   ]
 }
