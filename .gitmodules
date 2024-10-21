@@ -1,0 +1,3 @@
+[submodule "llvm-ir-pp"]
+	path = llvm-ir-pp
+	url = https://github.com/bmanga/llvm-ir-pp.git
