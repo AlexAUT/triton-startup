@@ -12,7 +12,9 @@
         "-s",
         "-vv",
         // "python/perf-kernels/tools/tune_gemm/test_regression.py",
-        "python/test/unit/language/test_core.py",
+        // "python/test/unit/language/test_core.py",
+        // "python/test/unit/language/test_core.py::test_dot3d[1-1-64-64-64-32-32-float16-float32]",
+        "python/tutorials/06-fused-attention.py::test_op[True-1-2-1024-64]",
         // "python/test/unit/language/test_core.py::test_dot3d[1-1-64-64-64-32-32-float32-float32]"
       ],
       "stopAtEntry": false,
