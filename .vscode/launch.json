@@ -32,7 +32,7 @@
         },
         {
           "name": "TRITON_ENABLE_LLVM_DEBUG",
-          "value": "1"
+          "value": "0"
         }
       ],
       "externalConsole": false,
