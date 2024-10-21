@@ -23,5 +23,7 @@
     ],
     "C_Cpp.intelliSenseEngine": "disabled",
     "editor.tabSize": 2,
-    "python.defaultInterpreterPath": "/opt/conda/envs/py_3.10/bin/python3"
+    "python.defaultInterpreterPath": "/opt/conda/envs/py_3.10/bin/python3",
+    "debug.inlineValues": "off",
+    "vim.smartRelativeLine": true,
 }
