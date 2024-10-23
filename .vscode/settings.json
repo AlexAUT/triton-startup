@@ -26,4 +26,5 @@
     "python.defaultInterpreterPath": "/opt/conda/envs/py_3.10/bin/python3",
     "debug.inlineValues": "off",
     "vim.smartRelativeLine": true,
+    "mlir.server_path": "python/build/cmake.linux-x86_64-cpython-3.10/bin/triton-lsp",
 }
