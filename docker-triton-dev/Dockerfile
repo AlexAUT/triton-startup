@@ -22,7 +22,7 @@ RUN apt-get install -y vim zsh zsh-doc tmux git less man man-db mlocate graphviz
 
 # Remove pre-build triton version
 RUN pip uninstall -y triton
-RUN pip install numpy=v1.24.4 panda pandas pybind11 pre-commit
+RUN pip install numpy==v1.24.4 panda pandas pybind11 pre-commit
 
 ARG MUID
 ARG MGID

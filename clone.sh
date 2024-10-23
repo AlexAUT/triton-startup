@@ -13,5 +13,4 @@ ln -sf ${script_dir}/.vscode .vscode
 echo "source ${script_dir}/llvm-pretty-printers.py" >> .gdbinit
 echo "source ${script_dir}/llvm-ir-pp/llvm-ir-prettyprinter.py" >> .gdbinit
 
-pip install pre-commit
 pre-commit install
