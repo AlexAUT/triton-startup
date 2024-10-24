@@ -11,18 +11,25 @@
         "pytest",
         "-s",
         "-vv",
+        "python/tutorials/06-fused-attention.py::test_op[True-1-2-1024-64]",
         // "python/perf-kernels/tools/tune_gemm/test_regression.py",
         // "python/test/unit/language/test_core.py",
         // "python/test/unit/language/test_core.py::test_dot3d[1-1-64-64-64-32-32-float16-float32]",
-        "python/tutorials/06-fused-attention.py::test_op[True-1-2-1024-64]",
-        // "python/test/unit/language/test_core.py::test_dot3d[1-1-64-64-64-32-32-float32-float32]"
+        // "python/tutorials/06-fused-attention.py::test_op[True-1-2-1024-64]",
+        // "python/test/unit/language/test_core.py::test_dot3d[1-1-64-64-64-32-32-float32-float32]",
+        // "2>",
+        // "test.log",
       ],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [
         {
+          "name": "TRITON_ALWAYS_COMPILE",
+          "value": "1"
+        },
+        {
           "name": "MLIR_ENABLE_DUMP",
-          "value": "0"
+          "value": "_attn_bwd"
         },
         {
           "name": "LLVM_IR_ENABLE_DUMP",
@@ -66,7 +73,8 @@
         "-vv",
         // "python/perf-kernels/tools/tune_gemm/test_regression.py",
         // "python/test/unit/language/test_core.py",
-        "python/test/unit/language/test_core.py::test_bin_op"
+        // "python/test/unit/language/test_core.py::test_bin_op",
+        "python/tutorials/06-fused-attention.py::test_op[True-1-2-1024-64]",
       ]
     }
   ]
