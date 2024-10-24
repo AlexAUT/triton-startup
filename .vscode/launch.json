@@ -59,8 +59,13 @@
       "name": "py-debug",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/.vscode/vector_add.py",
+      "program": "dev/test_print.py",
       "console": "integratedTerminal",
+      "env": {
+        "TRITON_ALWAYS_COMPILE": "1",
+        "MLIR_ENABLE_DUMP": "0",
+        "AMDGCN_ENABLE_DUMP": "1",
+      }
     },
     {
       "name": "Debug pytest",

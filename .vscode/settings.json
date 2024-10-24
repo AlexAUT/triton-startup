@@ -26,5 +26,11 @@
     "python.defaultInterpreterPath": "/opt/conda/envs/py_3.10/bin/python3",
     "debug.inlineValues": "off",
     "mlir.server_path": "python/build/cmake.linux-x86_64-cpython-3.10/bin/triton-lsp",
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "editor.lineNumbers": "relative",
+    "python.testing.pytestArgs": [
+        "python/test/unit"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
