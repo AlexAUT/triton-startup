@@ -9,3 +9,8 @@ addopts="-n 4"
 test_device_backend.py
 test_performance.py
 ```
+
+# Show rocm version
+```
+apt show rocm-libs -a
+```
