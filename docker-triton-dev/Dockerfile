@@ -12,8 +12,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 # RUN apt-get update
 # RUN apt-get install -y netcat-openbsd
 
-# RUN apt-get update && \
-RUN apt-get install -y vim zsh zsh-doc tmux git less man man-db mlocate graphviz cmake-curses-gui ccache bash-completion
+RUN apt-get update && \
+    apt-get install -y vim zsh zsh-doc tmux git less man man-db mlocate graphviz cmake-curses-gui ccache bash-completion
 #   apt-get install -y silversearcher-ag keychain htop rcm && \
 #   apt-get install -y libbz2-dev liblzma-dev libssl-dev libreadline-dev
 
@@ -28,14 +28,15 @@ ARG MUID
 ARG MGID
 ARG USERNAME
 
-RUN addgroup --gid ${MGID} ${USERNAME}
+# RUN addgroup --gid ${MGID} ${USERNAME}
 RUN useradd -d /home/${USERNAME} -g ${MGID} --no-create-home -u ${MUID} --shell /usr/bin/bash ${USERNAME}
 RUN adduser ${USERNAME} sudo
 RUN adduser ${USERNAME} video
 RUN adduser ${USERNAME} render
-# The /var is only needed on lockhart
-RUN mkdir /home/${USERNAME} /var/${USERNAME}
-RUN chown ${USERNAME}:${USERNAME} /home/${USERNAME} /var/${USERNAME}
+
+RUN mkdir /home/${USERNAME}
+
+# RUN chown ${USERNAME}:${USERNAME} /home/${USERNAME} /var/${USERNAME}
 # RUN chown -R ${USERNAME}:${USERNAME} /opt/conda
 
 # Make sudo work without a password
@@ -46,4 +47,4 @@ WORKDIR /home/${USERNAME}
 ENV HOME=/home/${USERNAME}
 
 # Keep container alive
-CMD tmux new-session -d && tail -f /dev/null
+CMD tail -f /dev/null
