@@ -22,7 +22,7 @@ RUN apt-get update && \
 
 # Remove pre-build triton version
 RUN pip uninstall -y triton
-RUN pip install numpy==v1.24.4 panda pandas pybind11 pre-commit
+RUN pip install numpy==v1.24.4 panda pandas pybind11 pre-commit matplotlib
 
 ARG MUID
 ARG MGID
