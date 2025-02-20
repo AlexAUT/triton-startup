@@ -8,6 +8,7 @@ FROM ${TRITON_DOCKER_IMAGE}
 # FROM rocm/mlir:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
+RUN userdel jenkins
 
 # RUN apt-get update
 # RUN apt-get install -y netcat-openbsd
@@ -28,11 +29,10 @@ ARG MUID
 ARG MGID
 ARG USERNAME
 
-# RUN addgroup --gid ${MGID} ${USERNAME}
+RUN addgroup --gid ${MGID} ${USERNAME}
 RUN useradd -d /home/${USERNAME} -g ${MGID} --no-create-home -u ${MUID} --shell /usr/bin/bash ${USERNAME}
 RUN adduser ${USERNAME} sudo
 RUN adduser ${USERNAME} video
-RUN adduser ${USERNAME} render
 
 RUN mkdir /home/${USERNAME}
 

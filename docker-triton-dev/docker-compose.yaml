@@ -8,6 +8,8 @@ services:
         MGID: "${MGID}"
         USERNAME: "${USER}"
         TRITON_DOCKER_IMAGE: "${TRITON_DOCKER_IMAGE}"
+      ssh:
+        - default
     shm_size: '1G'
     image: "${USER}/triton"
     ipc: "host"
