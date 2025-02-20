@@ -33,6 +33,7 @@ RUN addgroup --gid ${MGID} ${USERNAME}
 RUN useradd -d /home/${USERNAME} -g ${MGID} --no-create-home -u ${MUID} --shell /usr/bin/bash ${USERNAME}
 RUN adduser ${USERNAME} sudo
 RUN adduser ${USERNAME} video
+# RUN adduser ${USERNAME} render
 
 RUN mkdir /home/${USERNAME}
 

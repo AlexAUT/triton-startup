@@ -26,7 +26,7 @@ services:
       - "${RENDER_GROUP}"
     volumes:
       - type: bind
-        source: "${HOME}"
+        source: "${HOME}/triton-dev"
         target: "${HOME}"
       - "local-files:/var/${USER}"
       - "/tmp/.X11-unix:/tmp/.X11-unix"
