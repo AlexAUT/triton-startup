@@ -27,7 +27,7 @@ services:
     volumes:
       - type: bind
         source: "${HOME}/triton-dev"
-        target: "${HOME}"
+        target: "${HOME}/triton-dev"
       - "local-files:/var/${USER}"
       - "/tmp/.X11-unix:/tmp/.X11-unix"
       - "/etc/apt:/etc/apt"

@@ -14,7 +14,7 @@ RUN userdel jenkins
 # RUN apt-get install -y netcat-openbsd
 
 RUN apt-get update && \
-    apt-get install -y vim zsh zsh-doc tmux git less man man-db mlocate graphviz cmake-curses-gui ccache bash-completion
+    apt-get install -y vim zsh zsh-doc git less man man-db graphviz ccache
 #   apt-get install -y silversearcher-ag keychain htop rcm && \
 #   apt-get install -y libbz2-dev liblzma-dev libssl-dev libreadline-dev
 
@@ -23,7 +23,7 @@ RUN apt-get update && \
 
 # Remove pre-build triton version
 RUN pip uninstall -y triton
-RUN pip install numpy==v1.24.4 panda pandas pybind11 pre-commit matplotlib
+RUN pip install numpy==v1.26.4 panda pandas pybind11 pre-commit matplotlib
 
 ARG MUID
 ARG MGID
@@ -37,15 +37,36 @@ RUN adduser ${USERNAME} video
 
 RUN mkdir /home/${USERNAME}
 
-# RUN chown ${USERNAME}:${USERNAME} /home/${USERNAME} /var/${USERNAME}
+RUN chown ${USERNAME}:${USERNAME} /home/${USERNAME}
 # RUN chown -R ${USERNAME}:${USERNAME} /opt/conda
 
 # Make sudo work without a password
 RUN sed -i~ -e 's/%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL:ALL) NOPASSWD:ALL/g' /etc/sudoers
 
+
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}
 ENV HOME=/home/${USERNAME}
 
+# Install oh-my-zsh
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install neovim
+RUN mkdir -p apps/nvim
+WORKDIR ${HOME}/apps/nvim
+RUN wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage
+RUN chmod u+x nvim-linux-x86_64.appimage
+RUN ./nvim-linux-x86_64.appimage --appimage-extract
+RUN mkdir -p ~/.local/bin
+RUN ln -sf ~/apps/nvim/squashfs-root/usr/bin/nvim ~/.local/bin
+
+# Install astronvim
+RUN git clone https://github.com/AlexAUT/astronvim-config ~/.config/nvim
+
+# Add .local/bin to path
+RUN echo "export PATH=/home/aweinrau/.local/bin:$PATH" >> ~/.zshrc
+
 # Keep container alive
+WORKDIR /home/${USERNAME}
 CMD tail -f /dev/null
+
